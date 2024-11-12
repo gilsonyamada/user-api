@@ -9,18 +9,21 @@ service UserService {
     rpc GetUserProfile(UserRequest) returns (UserResponse);
 }
 
+message Name {
+    string first_name = 1;
+    string last_name = 2;
+}
+
 message RegisterRequest {
     string email = 1;
-    string first_name = 2;
-    string last_name = 3;
-    string role = 4;
+    Name name = 2;
+    string role = 3;
 }
 
 message RegisterResponse {
     string id = 1;
-    string first_name = 2;
-    string last_name = 3;
-    string role = 4;
+    Name name = 2;
+    string role = 3;
 }
 
 message UserRequest {
@@ -29,8 +32,7 @@ message UserRequest {
 
 message UserResponse {
     string id = 1;
-    string first_name = 2;
-    string last_name = 3;
-    string email = 4;
-    string role = 5;
+    Name name = 2;
+    string email = 3;
+    string role = 4;
 }
