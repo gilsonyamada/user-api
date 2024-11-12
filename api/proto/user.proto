@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "github.com/gilsonyamada/user-api/internal/interfaces/grpc/userpb";
+
+service UserService {
+    rpc RegisterUser(RegisterRequest) returns (RegisterResponse);
+    rpc GetUserProfile(UserRequest) returns (UserResponse);
+}
+
+message RegisterRequest {
+    string email = 1;
+    string first_name = 2;
+    string last_name = 3;
+    string role = 4;
+}
+
+message RegisterResponse {
+    string id = 1;
+    string first_name = 2;
+    string last_name = 3;
+    string role = 4;
+}
+
+message UserRequest {
+    string id = 1;
+}
+
+message UserResponse {
+    string id = 1;
+    string first_name = 2;
+    string last_name = 3;
+    string email = 4;
+    string role = 5;
+}
